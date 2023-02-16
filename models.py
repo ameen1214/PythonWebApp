@@ -18,14 +18,15 @@ class Users(db.Model):
         return f"<Users {self.username}:{self.email}>"
 
 
-class Memberships(db.Model):
-    __tablename__ = 'memberships'
-    memberships = db.Column(db.Text(), primary_key=True)
-    price = db.Column(db.Integer())
-
-    def __ref__(self):
-        return f"<Memberships {self.memberships}: {self.price}>"
-
+# class Memberships(db.Model):
+#     __tablename__ = 'memberships'
+#     memberships = db.Column(db.Text(), primary_key=True)
+#     price = db.Column(db.Numeric(precision=10, scale=2))
+#     url = db.Column(db.Text())
+#
+#     def __ref__(self):
+#         return f"<Memberships {self.memberships}: {self.price}>"
+#
 
 class Product(db.Model):
     __tablename__ = 'product'
@@ -34,7 +35,7 @@ class Product(db.Model):
     category = db.Column(db.Text())
     url = db.Column(db.Text())
     size = db.Column(db.Text())
-    price = db.Column(db.Integer(), nullable=False, default=0)
+    price = db.Column(db.Numeric(precision=10, scale=2))
     carts = db.relationship('Cart', secondary='product_cart', backref=db.backref('carts', lazy=True), lazy=True,
                             viewonly=True)
 

@@ -8,7 +8,7 @@ background-repeat: no-repeat;
 .background{
 
     width: 430px;
-    height: 520px;
+    height: inherit;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -41,11 +41,11 @@ background: linear-gradient(
 }
 
 form{
-    height: 520px;
+    height: inherit;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
+    /*position: absolute;*/
+    transform: translate(200%,05%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
@@ -72,7 +72,7 @@ form h3{
 
 label{
     display: block;
-    margin-top: 30px;
+    margin-top: 5px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -94,7 +94,7 @@ input{
 }
 
 button{
-    margin-top: 50px;
+
     width: 100%;
     background-color: #ffffff;
     color: #080710;

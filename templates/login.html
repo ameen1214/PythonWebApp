@@ -1,37 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login Page</title>
- 
-    
+{% extends "index.html" %}
+{% block title %}{{ super() }} - Log In{% endblock %}
+{% block head %}
     <!-- <link rel="stylesheet" href="/css/login.css"> -->
-    <link rel="stylesheet" href="/css/login.css">
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 
-<script>
-    
-</script>
-
-
-
-  
-</head>
+{% endblock %}
+{% block content %}
 <body>
-
-    <form>
-        <h3>Login Here</h3>
-
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" name="username">
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="password">
-
-        <button id="button">Log In</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div>
+{% for message in get_flashed_messages() %}
+    {{ message }}<br/>
+{% endfor %}
+<div class="container" id="loginbody">
+    <form action="/login" method="post">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username }}<br/>
+        {{ form.password.label }} {{ form.password }}<br/>
+        {{ form.submit }}
     </form>
-    
-</body>
-</html>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends "index.html" %}#}
+{##}
+{#{% block head %}#}
+{#{% block title %}{{ super() }} - Log In{% endblock %}#}
+{##}
+{##}
+{##}
+{#    <!-- <link rel="stylesheet" href="/css/login.css"> -->#}
+{#    {{ super() }}#}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">#}
+{##}
+{##}
+{##}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <body>#}
+{##}
+{#  <div class="container" id="loginbody">#}
+{##}
+{#    <form action="/login" method="post">#}
+{#        <h3>Login Here</h3>#}
+{##}
+{#        {{ form.username.label }}{{ form.username }}<br/>#}
+{##}
+{#         {{ form.password.label }}{{ form.password }}<br/>#}
+{##}
+{#        {{ form.submit }}#}
+{#{% for message in get_flashed_messages() %}#}
+{#    {{ message }}<br/>#}
+{#{% endfor %}#}
+{##}
+{#    </form>#}
+{#  </div>#}
+{#    </body>#}
+{#    {% endblock %}#}
